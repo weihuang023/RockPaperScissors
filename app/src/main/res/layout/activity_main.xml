@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/title_imageView"
         android:src="@drawable/default_picture"
         tools:ignore="ContentDescription"
         android:layout_alignParentTop="true"
@@ -21,10 +21,10 @@
     <ImageView
         android:layout_width = "100dp"
         android:layout_height= "100dp"
-        android:id="@+id/nopic"
+        android:id="@+id/computer_imageview"
         android:src="@drawable/nopic"
         tools:ignore="ContentDescription"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/title_imageView"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -49,10 +49,10 @@
         tools:ignore="ContentDescription"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/imageView2"
+        android:id="@+id/human_imageview"
         android:src="@drawable/nopic"
-        android:layout_below="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView" />
+        android:layout_below="@+id/title_imageView"
+        android:layout_alignEnd="@+id/title_imageView" />
 
     <ImageButton
         tools:ignore="ContentDescription"
@@ -70,7 +70,7 @@
         android:id="@+id/scissor_imagebutton"
         android:src="@drawable/scissor"
         android:layout_alignTop="@+id/paper_imagebutton"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_alignStart="@+id/human_imageview" />
 
     <ImageButton
         tools:ignore="ContentDescription"
@@ -85,9 +85,9 @@
         tools:ignore="ContentDescription"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/imageButton4"
+        android:id="@+id/start_imagebutton"
         android:src="@drawable/start"
-        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignTop="@+id/human_imageview"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
