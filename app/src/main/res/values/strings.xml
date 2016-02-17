@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="app_title">Rock-Paper-Scissors</string>
+    <string name="result">No Result</string>
+    <string name="about_title">About</string>
+    <string name="about_text"> This Game has lot of Fun. I like this game. </string>
+</resources>
