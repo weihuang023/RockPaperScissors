@@ -25,7 +25,7 @@
         android:src="@drawable/nopic"
         tools:ignore="ContentDescription"
         android:layout_below="@+id/title_imageView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignEnd="@+id/computer_textview" />
 
     <TextView
         android:layout_width="match_parent"
@@ -93,7 +93,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You Choice"
+        android:text="Your Choice"
         android:id="@+id/human_textView"
         android:textSize="25sp"
         android:layout_alignTop="@+id/computer_textview"

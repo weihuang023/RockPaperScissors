@@ -16,7 +16,9 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
+
     protected static final String TAG = "Rock-Paper-Scissors";
+
     ImageButton rockImageButton;
     ImageButton paperImageButton;
     ImageButton scissorImageButton;
@@ -40,20 +42,22 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         scissorImageButton = (ImageButton) findViewById(R.id.scissor_imagebutton);
         scissorImageButton.setOnClickListener(this);
         textView = (TextView)findViewById(R.id.result);
+        textView.setText(R.string.result);
     }
 
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
+
             case R.id.about_button:
                 Intent intent = new Intent(MainActivity.this, About.class);
                 startActivity(intent);
                 break;
+
             case R.id.rock_imagebutton:
                 imageView2.setImageResource(R.drawable.rock);
                 getRandomPic();
-                Log.d(TAG, "Image Tag " + imageView1.getTag() + " R Draw Tag " + R.drawable.scissor);
                 showResult1();
                 break;
 
@@ -62,11 +66,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 getRandomPic();
                 showResult2();
                 break;
+
             case R.id.scissor_imagebutton:
                 imageView2.setImageResource(R.drawable.scissor);
                 getRandomPic();
                 showResult3();
                 break;
+
         }
     }
 
@@ -78,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         Log.d(TAG, "Randomly Pick Up Picture No. " + i);
         imageView1.setImageResource(photos[i]);
         imageView1.setTag(photos[i]);
-
     }
 
 
@@ -104,8 +109,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
     public void showResult1(){
-        textView = (TextView)findViewById(R.id.result);
-        textView.setText(R.string.result);
         if ((Integer)imageView1.getTag() == R.drawable.scissor){
             String wText = "You Won, Play It Again";
             textView.setText(wText);
@@ -119,8 +122,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
     public void showResult2(){
-        textView = (TextView)findViewById(R.id.result);
-        textView.setText(R.string.result);
         if ((Integer)imageView1.getTag() == R.drawable.rock){
             String wText = "You Won, Play It Again";
             textView.setText(wText);
@@ -134,8 +135,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
     public void showResult3(){
-        textView = (TextView)findViewById(R.id.result);
-        textView.setText(R.string.result);
         if ((Integer)imageView1.getTag() == R.drawable.paper){
             String wText = "You Won, Play It Again";
             textView.setText(wText);
