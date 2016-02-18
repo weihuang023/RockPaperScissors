@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     ImageView imageView2;
     TextView textView;
     Button aboutButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         textView.setText(R.string.result);
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Music.play(this,R.raw.main);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d(TAG, "onPause");
+        Music.stop(this);
+    }
 
     @Override
     public void onClick(View v) {
@@ -77,15 +90,21 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
 
+    // Put image into Array
     int[] photos = {R.drawable.rock,R.drawable.paper,R.drawable.scissor};
     public void getRandomPic(){
+        // Random Image generated
         Random ran = new Random(System.currentTimeMillis());
         int i = ran.nextInt(photos.length);
         Log.d(TAG, "Randomly Pick Up Picture No. " + i);
+        // Set image for image Resource - Create Image in View
+        // Set image for image Tag - Create image_id for each picture
         imageView1.setImageResource(photos[i]);
         imageView1.setTag(photos[i]);
     }
 
+    // Setting Item
+    // Intent in Prefs.Class
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,9 +113,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
-
-    // Setting Item
-    // Intent in Prefs.Class
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

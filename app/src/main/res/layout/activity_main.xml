@@ -25,18 +25,20 @@
         android:src="@drawable/nopic"
         tools:ignore="ContentDescription"
         android:layout_below="@+id/title_imageView"
-        android:layout_alignEnd="@+id/computer_textview" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/result"
         android:id="@+id/result"
-        android:textSize="30sp"
         android:textAlignment="center"
+        android:textSize="14sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="60dp" />
+
+
 
     <Button
         android:layout_width="match_parent"
@@ -93,19 +95,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Choice"
+        android:text="@string/human_textview_label"
         android:id="@+id/human_textView"
         android:textSize="25sp"
         android:layout_alignTop="@+id/computer_textview"
-        android:layout_alignEnd="@+id/human_imageview" />
+        android:layout_alignStart="@+id/human_imageview" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Computer"
+        android:text="@string/computer_textview_label"
         android:textSize="25sp"
         android:id="@+id/computer_textview"
         android:layout_below="@+id/computer_imageview"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Count "
+        android:id="@+id/count_textview"
+        android:layout_above="@+id/paper_imagebutton"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

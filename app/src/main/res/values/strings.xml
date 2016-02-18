@@ -3,7 +3,13 @@
     <string name="app_title">Rock-Paper-Scissors</string>
     <string name="result">No Result</string>
     <string name="about_title">About</string>
-    <string name="about_text"> This Game has lot of Fun. I like this game. </string>
+    <string name="computer_textview_label">COM PK</string>
+    <string name="human_textview_label">YOU PK</string>
+    <string name="about_text">
+        <b>Step 1</b> You pick a choice from images
+        <b>Step 2</b> Computer generate a choice
+        <b>Step 3</b> Result shows who won the game
+        <i>This is a game for you to relax your mind and take time to think about nothing</i></string>
     <string name="settings_label">Settings</string>
     <string name="settings_title">Rock-Paper-Scissor Settings</string>
     <string name="settings_shortcut">s</string>
