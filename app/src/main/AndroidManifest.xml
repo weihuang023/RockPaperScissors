@@ -20,5 +20,9 @@
             android:label="@string/about_title"
             android:theme="@android:style/Theme.Dialog">
         </activity>
+        <activity android:name=".Prefs"
+            android:label="@string/settings_title"
+            android:theme="@style/Theme.AppCompat.CompactMenu">
+        </activity>
     </application>
 </manifest>

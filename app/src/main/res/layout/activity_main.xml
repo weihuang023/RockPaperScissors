@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/about_title"
-        android:id="@+id/about"
+        android:id="@+id/about_button"
         android:layout_alignParentBottom="true" />
 
     <ImageView
@@ -81,13 +81,31 @@
         android:layout_above="@+id/result"
         android:layout_alignParentStart="true" />
 
-    <ImageButton
+    <ImageView
         tools:ignore="ContentDescription"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/start_imagebutton"
-        android:src="@drawable/start"
+        android:src="@drawable/vs"
         android:layout_alignTop="@+id/human_imageview"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Choice"
+        android:id="@+id/human_textView"
+        android:textSize="25sp"
+        android:layout_alignTop="@+id/computer_textview"
+        android:layout_alignEnd="@+id/human_imageview" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Computer"
+        android:textSize="25sp"
+        android:id="@+id/computer_textview"
+        android:layout_below="@+id/computer_imageview"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

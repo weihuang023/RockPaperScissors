@@ -4,4 +4,9 @@
     <string name="result">No Result</string>
     <string name="about_title">About</string>
     <string name="about_text"> This Game has lot of Fun. I like this game. </string>
+    <string name="settings_label">Settings</string>
+    <string name="settings_title">Rock-Paper-Scissor Settings</string>
+    <string name="settings_shortcut">s</string>
+    <string name="music_title">Music</string>
+    <string name="music_summary">Play background music</string>
 </resources>
