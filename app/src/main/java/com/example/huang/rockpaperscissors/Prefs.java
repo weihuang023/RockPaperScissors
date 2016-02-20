@@ -11,7 +11,6 @@ public class Prefs extends PreferenceActivity {
     private static final String OPT_MUSIC = "music";
     private static final boolean OPT_MUSIC_DEF = false;
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

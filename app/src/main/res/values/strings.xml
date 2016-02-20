@@ -5,11 +5,14 @@
     <string name="about_title">About</string>
     <string name="computer_textview_label">COM PK</string>
     <string name="human_textview_label">YOU PK</string>
+    <string name="count">COUNT</string>
     <string name="about_text">
-        <b>Step 1</b> You pick a choice from images
-        <b>Step 2</b> Computer generate a choice
-        <b>Step 3</b> Result shows who won the game
-        <i>This is a game for you to relax your mind and take time to think about nothing</i></string>
+        <b>Step 1</b> You pick a choice from images \n
+        <b>Step 2</b> Computer generate a choice \n
+        <b>Step 3</b> Result shows who won the game \n
+        <b>Goal</b> TRY to have 100 Pct. Lucky G \n
+        <b>Hint</b> (Shake U Phone Reset Default Scr) \n
+        <i>This is a game for you to refresh your mind and take time to think about nothing</i></string>
     <string name="settings_label">Settings</string>
     <string name="settings_title">Rock-Paper-Scissor Settings</string>
     <string name="settings_shortcut">s</string>
