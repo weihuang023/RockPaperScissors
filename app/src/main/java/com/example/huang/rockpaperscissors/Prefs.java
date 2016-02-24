@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-// Setting Menu Preference add Preferences From Resource
+// Setting Menu Preference add Preferences from Resource
 public class Prefs extends PreferenceActivity {
 
     private static final String OPT_MUSIC = "music";

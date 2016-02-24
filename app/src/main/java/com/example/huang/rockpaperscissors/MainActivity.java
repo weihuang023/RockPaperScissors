@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     private int tight = 0;
     private double status = 0;
 
-
-    ProgressBar statusProgressBar;
+    SeekBar statusSeekBar;
     ImageButton rockImageButton;
     ImageButton paperImageButton;
     ImageButton scissorImageButton;
@@ -50,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         result_tv = (TextView) findViewById(R.id.result);
         count_tv = (TextView) findViewById(R.id.count);
         gameLayout = (RelativeLayout) findViewById(R.id.gameLayout);
+        gameLayout.setBackgroundColor(Color.BLACK);
         aboutButton = (Button) findViewById(R.id.about_button);
         aboutButton.setOnClickListener(this);
         rockImageButton = (ImageButton) findViewById(R.id.rock_imagebutton);
@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         paperImageButton.setOnClickListener(this);
         scissorImageButton = (ImageButton) findViewById(R.id.scissor_imagebutton);
         scissorImageButton.setOnClickListener(this);
-        statusProgressBar = (ProgressBar) findViewById(R.id.status_progressBar);
-        statusProgressBar = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
+        statusSeekBar = (SeekBar) findViewById(R.id.status_seekBar);
 
     }
 
@@ -76,22 +75,34 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         Music.stop(this);
     }
 
+    /** OnClick will have all the controllers from imageButton and button
+     *  ImageButton 3 For Rock Paper Scissor
+     *  Button 1 For About */
     @Override
     public void onClick(View v) {
-        final String countText = "W: "+won+
+
+        // show Pct. status report from calculation won/(total)%
+        final String countText =
+                "W: "+won+
                 " | L: "+lose+
                 " | T: "+tight+
                 " | "+String.format("Pct. %.2f", status)+"%";
+
+        // Use Intent and show about class, and modify the alert dialog in android Manifest
         switch(v.getId()){
             case R.id.about_button:
                 Intent intent = new Intent(MainActivity.this, About.class);
                 startActivity(intent);
                 break;
 
+        // 1 Set image for image Button
+        // 2 Create 3 diff method getRandomPic and getResult1 and setText and changeBackGroundColor
+        // 3 Create setText show the count text message
+
             case R.id.rock_imagebutton:
                 imageView2.setImageResource(R.drawable.rock);
                 getRandomPic();
-                showResult1();
+                getResult1();
                 count_tv.setText(countText);
                 changeBackgroundColor();
                 break;
@@ -99,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             case R.id.paper_imagebutton:
                 imageView2.setImageResource(R.drawable.paper);
                 getRandomPic();
-                showResult2();
+                getResult2();
                 count_tv.setText(countText);
                 changeBackgroundColor();
                 break;
@@ -107,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             case R.id.scissor_imagebutton:
                 imageView2.setImageResource(R.drawable.scissor);
                 getRandomPic();
-                showResult3();
+                getResult3();
                 count_tv.setText(countText);
                 changeBackgroundColor();
                 break;
@@ -115,11 +126,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         }
     }
 
-
     // Put image into Array
     static final int[] photos = {R.drawable.rock,R.drawable.paper,R.drawable.scissor};
 
     public void getRandomPic(){
+
         // Random Image generated
         Random ran = new Random(System.currentTimeMillis());
         int i = ran.nextInt(photos.length);
@@ -128,11 +139,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         // Set image for image Tag - Create image_id for each picture
         imageView1.setImageResource(photos[i]);
         imageView1.setTag(photos[i]);
+
     }
 
     // Setting Item
     // Intent in Prefs.Class
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -155,7 +166,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     static final String lText = "Loser Loser, Try It Again";
     static final String tText = "Umm Tight, Do It Again";
 
-    public void showResult1(){
+    // Use Three Different Result for Different ImageButton
+    // Get Count for Won and Lose and Tight
+
+    public void getResult1(){
         if ((Integer)imageView1.getTag() == R.drawable.scissor){
             result_tv.setText(wText);
             won++;
@@ -166,11 +180,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             result_tv.setText(tText);
             tight++;
         }
-        status = ((double)won/(double)(won+lose+tight))*100;
-        showStatusProgressBar();
+        getStatus();
+        getStatusSeekBar();
     }
 
-    public void showResult2(){
+    public void getResult2(){
         if ((Integer)imageView1.getTag() == R.drawable.rock){
             result_tv.setText(wText);
             won++;
@@ -181,11 +195,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             result_tv.setText(tText);
             tight++;
         }
-        status = ((double)won/(double)(won+lose+tight))*100;
-        showStatusProgressBar();
+        getStatus();
+        getStatusSeekBar();
     }
 
-    public void showResult3(){
+    public void getResult3(){
         if ((Integer)imageView1.getTag() == R.drawable.paper){
             result_tv.setText(wText);
             won++;
@@ -196,19 +210,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             result_tv.setText(tText);
             tight++;
         }
-        status = ((double)won/(double)(won+lose+tight))*100;
-        showStatusProgressBar();
+        getStatus();
+        getStatusSeekBar();
     }
 
-    public void showStatusProgressBar(){
-        statusProgressBar.setPadding(20, 10, 10, 10);
-        statusProgressBar.setVisibility(View.INVISIBLE);
-        statusProgressBar.getIndeterminateDrawable();
-        statusProgressBar.setIndeterminate(false);
-        statusProgressBar.setMax(100);
-        statusProgressBar.setProgress((int)status);
-        statusProgressBar.bringToFront();
+    // getPct.
+    public void getStatus(){
+
+        status = ((double)won/(double)(won+lose+tight))*100;
+
     }
+
+    // Show Percentage in Status Bar
+
+    public void getStatusSeekBar(){
+        statusSeekBar.setMax(100);
+        statusSeekBar.setVisibility(View.VISIBLE);
+        statusSeekBar.setProgress((int) status);
+    }
+
+    // Change Background Color by Percentage
 
     public void changeBackgroundColor(){
         if(status < 10){
