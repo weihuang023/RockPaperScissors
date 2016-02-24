@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
     /** OnClick will have all the controllers from imageButton and button
-     *  ImageButton 3 For Rock Paper Scissor
-     *  Button 1 For About */
+     *  ImageButton 3 for Rock Paper Scissor
+     *  Button 1 for About */
     @Override
     public void onClick(View v) {
 
@@ -95,9 +95,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 startActivity(intent);
                 break;
 
-        // 1 Set image for image Button
-        // 2 Create 3 diff method getRandomPic and getResult1 and setText and changeBackGroundColor
+        // 1 Set image for ImageButton
+        // 2 Create 3 diff method
+        //   .getRandomPic
+        //   .getResult1
+        //   .changeBackGroundColor
         // 3 Create setText show the count text message
+        //   .won
+        //   .lose
+        //   .tight
 
             case R.id.rock_imagebutton:
                 imageView2.setImageResource(R.drawable.rock);
@@ -144,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
     // Setting Item
     // Intent in Prefs.Class
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -214,7 +221,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         getStatusSeekBar();
     }
 
-    // getPct.
+    // get percentage from won / won lose tight
+
     public void getStatus(){
 
         status = ((double)won/(double)(won+lose+tight))*100;
