@@ -95,15 +95,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 startActivity(intent);
                 break;
 
-        // 1 Set image for ImageButton
-        // 2 Create 3 diff method
-        //   .getRandomPic
-        //   .getResult1
-        //   .changeBackGroundColor
-        // 3 Create setText show the count text message
-        //   .won
-        //   .lose
-        //   .tight
+/**
+         Set image for ImageButton
+         Create 3 diff method
+           .getRandomPic
+           .getResult1,2,3
+           .changeBackGroundColor
+         Create setText show the count text message
+           .won
+           .lose
+           .tight
+*/
 
             case R.id.rock_imagebutton:
                 imageView2.setImageResource(R.drawable.rock);
